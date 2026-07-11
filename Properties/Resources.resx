@@ -127,4 +127,7 @@
   <data name="1db02ae0c64604b2f7fafa2de6968b7f" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1db02ae0c64604b2f7fafa2de6968b7f.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="image-25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\image-25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

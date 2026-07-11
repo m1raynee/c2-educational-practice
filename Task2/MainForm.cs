@@ -498,7 +498,10 @@ namespace c2_SP_Tasks.Task2
             PointF mathPos = trajectory.EquidistantPoints[index];
             PointF touchPoint = MathToScreen(mathPos);
 
+            float pSpeed = GetFloatFromTextBox(tHexSpeed, 0f);
             float hexR = GetFloatFromTextBox(tHexagonR, 30f);
+            float currentRadius = hexR - hexR * (float)Math.Abs(Math.Sin(globalTime * pSpeed));
+
             float rotSpeed = GetFloatFromTextBox(tHexagonAngleSpeed, 1f);
 
             float angle = globalTime * rotSpeed;
@@ -507,7 +510,7 @@ namespace c2_SP_Tasks.Task2
             for (int i = 0; i < 6; i++)
             {
                 float a = angle + i * (float)Math.PI / 3f;
-                vertices[i] = new PointF(hexR * (float)Math.Cos(a), hexR * (float)Math.Sin(a));
+                vertices[i] = new PointF(currentRadius * (float)Math.Cos(a), currentRadius * (float)Math.Sin(a));
             }
 
             float dx = touchPoint.X - vertices[0].X;
@@ -535,6 +538,11 @@ namespace c2_SP_Tasks.Task2
         private void panelControls_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void формулировкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Form1().ShowDialog();
         }
     }
 

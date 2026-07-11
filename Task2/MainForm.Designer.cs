@@ -55,12 +55,14 @@ namespace c2_SP_Tasks.Task2
             panel2 = new Panel();
             label8 = new Label();
             hexagonControlsLayout = new TableLayoutPanel();
+            label21 = new Label();
             label9 = new Label();
             tHexagonAngleSpeed = new TextBox();
             label10 = new Label();
             label12 = new Label();
             tHexagonR = new TextBox();
             cbHexagonBrush = new ComboBox();
+            tHexSpeed = new TextBox();
             panel3 = new Panel();
             label11 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -87,6 +89,7 @@ namespace c2_SP_Tasks.Task2
             кистиToolStripMenuItem = new ToolStripMenuItem();
             создатьКистьToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
+            формулировкаToolStripMenuItem = new ToolStripMenuItem();
             mainLayout.SuspendLayout();
             panelControls.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -117,7 +120,7 @@ namespace c2_SP_Tasks.Task2
             mainLayout.Name = "mainLayout";
             mainLayout.RowCount = 1;
             mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            mainLayout.Size = new Size(1129, 684);
+            mainLayout.Size = new Size(1129, 772);
             mainLayout.TabIndex = 0;
             // 
             // panelControls
@@ -140,7 +143,7 @@ namespace c2_SP_Tasks.Task2
             panelControls.Location = new Point(3, 3);
             panelControls.Name = "panelControls";
             panelControls.Padding = new Padding(15);
-            panelControls.Size = new Size(334, 678);
+            panelControls.Size = new Size(334, 766);
             panelControls.TabIndex = 0;
             panelControls.Paint += panelControls_Paint;
             // 
@@ -349,20 +352,34 @@ namespace c2_SP_Tasks.Task2
             hexagonControlsLayout.ColumnCount = 2;
             hexagonControlsLayout.ColumnStyles.Add(new ColumnStyle());
             hexagonControlsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            hexagonControlsLayout.Controls.Add(label21, 0, 3);
             hexagonControlsLayout.Controls.Add(label9, 0, 2);
             hexagonControlsLayout.Controls.Add(tHexagonAngleSpeed, 1, 1);
             hexagonControlsLayout.Controls.Add(label10, 0, 1);
             hexagonControlsLayout.Controls.Add(label12, 0, 0);
             hexagonControlsLayout.Controls.Add(tHexagonR, 1, 0);
             hexagonControlsLayout.Controls.Add(cbHexagonBrush, 1, 2);
+            hexagonControlsLayout.Controls.Add(tHexSpeed, 1, 3);
             hexagonControlsLayout.Location = new Point(18, 290);
             hexagonControlsLayout.Name = "hexagonControlsLayout";
-            hexagonControlsLayout.RowCount = 3;
+            hexagonControlsLayout.RowCount = 4;
             hexagonControlsLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             hexagonControlsLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             hexagonControlsLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
-            hexagonControlsLayout.Size = new Size(300, 90);
+            hexagonControlsLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            hexagonControlsLayout.Size = new Size(300, 110);
             hexagonControlsLayout.TabIndex = 11;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Dock = DockStyle.Fill;
+            label21.Location = new Point(3, 90);
+            label21.Name = "label21";
+            label21.Size = new Size(179, 20);
+            label21.TabIndex = 8;
+            label21.Text = "Скорость пульсации:";
+            label21.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label9
             // 
@@ -422,10 +439,17 @@ namespace c2_SP_Tasks.Task2
             cbHexagonBrush.Size = new Size(109, 23);
             cbHexagonBrush.TabIndex = 7;
             // 
+            // tHexSpeed
+            // 
+            tHexSpeed.Location = new Point(188, 93);
+            tHexSpeed.Name = "tHexSpeed";
+            tHexSpeed.Size = new Size(100, 23);
+            tHexSpeed.TabIndex = 9;
+            // 
             // panel3
             // 
             panel3.BackColor = SystemColors.ControlDark;
-            panel3.Location = new Point(18, 386);
+            panel3.Location = new Point(18, 406);
             panel3.Name = "panel3";
             panel3.Size = new Size(290, 1);
             panel3.TabIndex = 13;
@@ -433,7 +457,7 @@ namespace c2_SP_Tasks.Task2
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(18, 390);
+            label11.Location = new Point(18, 410);
             label11.Name = "label11";
             label11.Size = new Size(71, 15);
             label11.TabIndex = 14;
@@ -461,7 +485,7 @@ namespace c2_SP_Tasks.Task2
             tableLayoutPanel1.Controls.Add(label13, 0, 7);
             tableLayoutPanel1.Controls.Add(cbCurveBrush, 1, 7);
             tableLayoutPanel1.Controls.Add(nXMin, 1, 0);
-            tableLayoutPanel1.Location = new Point(18, 408);
+            tableLayoutPanel1.Location = new Point(18, 428);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 8;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
@@ -631,7 +655,7 @@ namespace c2_SP_Tasks.Task2
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Location = new Point(343, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(783, 678);
+            pictureBox1.Size = new Size(783, 766);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             pictureBox1.Paint += pictureBox1_Paint;
@@ -644,7 +668,7 @@ namespace c2_SP_Tasks.Task2
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { кистиToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { кистиToolStripMenuItem, формулировкаToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1129, 24);
@@ -670,12 +694,19 @@ namespace c2_SP_Tasks.Task2
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(156, 6);
             // 
+            // формулировкаToolStripMenuItem
+            // 
+            формулировкаToolStripMenuItem.Name = "формулировкаToolStripMenuItem";
+            формулировкаToolStripMenuItem.Size = new Size(103, 20);
+            формулировкаToolStripMenuItem.Text = "Формулировка";
+            формулировкаToolStripMenuItem.Click += формулировкаToolStripMenuItem_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1129, 708);
+            ClientSize = new Size(1129, 796);
             Controls.Add(mainLayout);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -765,5 +796,8 @@ namespace c2_SP_Tasks.Task2
         private NumericUpDown nCenterX;
         private Label label17;
         private NumericUpDown numericUpDown1;
+        private Label label21;
+        private TextBox tHexSpeed;
+        private ToolStripMenuItem формулировкаToolStripMenuItem;
     }
 }

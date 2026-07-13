@@ -258,6 +258,11 @@ namespace c2_SP_Tasks.Task3
                 DrawFractal();
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new TaskDialog().ShowDialog();
+        }
     }
 
 

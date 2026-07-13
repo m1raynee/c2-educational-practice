@@ -37,6 +37,7 @@
             numericUpDown3 = new NumericUpDown();
             button1 = new Button();
             pictureBox1 = new PictureBox();
+            button2 = new Button();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
@@ -54,10 +55,11 @@
             flowLayoutPanel1.Controls.Add(label3);
             flowLayoutPanel1.Controls.Add(numericUpDown3);
             flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(button2);
             flowLayoutPanel1.Dock = DockStyle.Top;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(684, 31);
+            flowLayoutPanel1.Size = new Size(770, 31);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -141,18 +143,29 @@
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Location = new Point(0, 31);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(684, 630);
+            pictureBox1.Size = new Size(770, 696);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             pictureBox1.MouseDown += pictureBox1_MouseDown;
             pictureBox1.MouseMove += pictureBox1_MouseMove;
             pictureBox1.MouseUp += pictureBox1_MouseUp;
             // 
+            // button2
+            // 
+            button2.AutoSize = true;
+            button2.Location = new Point(593, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(160, 25);
+            button2.TabIndex = 7;
+            button2.Text = "Покаазать формулировку";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // FractalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(684, 661);
+            ClientSize = new Size(770, 727);
             Controls.Add(pictureBox1);
             Controls.Add(flowLayoutPanel1);
             Name = "FractalForm";
@@ -179,5 +192,6 @@
         private PictureBox pictureBox1;
         private NumericUpDown numericUpDown3;
         private Label label3;
+        private Button button2;
     }
 }

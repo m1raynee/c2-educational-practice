@@ -73,29 +73,9 @@ namespace c2_SP_Tasks.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _89f21ec20c494260c1091508152d05f3f96cf61b {
-            get {
-                object obj = ResourceManager.GetObject("89f21ec20c494260c1091508152d05f3f96cf61b", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap image_25 {
             get {
                 object obj = ResourceManager.GetObject("image-25", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap top_view_old_french_newspaper_pieces {
-            get {
-                object obj = ResourceManager.GetObject("top-view-old-french-newspaper-pieces", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

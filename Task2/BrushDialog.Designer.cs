@@ -1,4 +1,6 @@
-﻿namespace c2_SP_Tasks.Task2
+﻿using System.Drawing.Drawing2D;
+
+namespace c2_SP_Tasks.Task2
 {
     partial class BrushDialog
     {
@@ -52,6 +54,12 @@
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nWidth).BeginInit();
             SuspendLayout();
+            
+            // Инициализация свойств из конструктора
+            ChosenColor = Color.Black;
+            ChosenWidth = 5;
+            ChosenDashStyle = DashStyle.Solid;
+            ChosenCustomPattern = null;
             // 
             // pictureBox1
             // 
@@ -243,6 +251,7 @@
             bSave.TabIndex = 6;
             bSave.Text = "Сохранить";
             bSave.UseVisualStyleBackColor = true;
+            bSave.DialogResult = DialogResult.OK;
             // 
             // BrushDialog
             // 
@@ -265,6 +274,22 @@
             tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nWidth).EndInit();
             ResumeLayout(false);
+            
+            // Привязываем кнопку "Сохранить" к закрытию с результатом OK
+            // (уже установлено выше в свойстве DialogResult)
+            
+            // Начальные настройки элементов интерфейса
+            cType.SelectedIndex = 0;
+            tPattern.Enabled = false;
+
+            // подписка на события
+            cType.SelectedIndexChanged += UpdatePreview;
+            tPattern.TextChanged += UpdatePreview;
+            nWidth.ValueChanged += UpdatePreview;
+
+            bColor.Click += bColor_Click;
+            pictureBox1.Paint += PictureBox1_Paint;
+            pictureBox1.SizeChanged += (s, e) => pictureBox1.Invalidate();
         }
 
         #endregion

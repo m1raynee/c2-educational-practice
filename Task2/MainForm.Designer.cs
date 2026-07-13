@@ -1,5 +1,6 @@
 ﻿using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
+using System.Drawing.Drawing2D;
 
 namespace c2_SP_Tasks.Task2
 {
@@ -737,6 +738,55 @@ namespace c2_SP_Tasks.Task2
             menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
+
+            // Инициализация свойств и логики
+            typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                ?.SetValue(pictureBox1, true, null);
+
+            tObjectSpeed.Text = "1";
+            tCircleSmallR.Text = "15";
+            tCircleBigR.Text = "40";
+            tCirclePulseSpeed.Text = "2.0";
+            tHexagonR.Text = "35";
+            tHexagonAngleSpeed.Text = "1.5";
+
+            defaultCircleBrush = new CustomBrushData
+            {
+                Name = "Круг (по умолчанию)",
+                Color = Color.FromArgb(255, 46, 147),
+                Width = 2.5f,
+                DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+            };
+            defaultHexagonBrush = new CustomBrushData
+            {
+                Name = "Шестиугольник (по умолчанию)",
+                Color = Color.FromArgb(40, 215, 170),
+                Width = 2.5f,
+                DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+            };
+            defaultCurveBrush = new CustomBrushData
+            {
+                Name = "Траектория (по умолчанию)",
+                Color = Color.FromArgb(215, 40, 100),
+                Width = 2f,
+                DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+            };
+
+            customBrushes.Add(defaultCircleBrush);
+            customBrushes.Add(defaultHexagonBrush);
+            customBrushes.Add(defaultCurveBrush);
+
+            UpdateBrushComboBoxes();
+            RebuildBrushMenu();
+
+            ConfigureInputControls();
+
+            cbCircleBrush.SelectedIndexChanged += (s, e) => pictureBox1.Invalidate();
+            cbHexagonBrush.SelectedIndexChanged += (s, e) => pictureBox1.Invalidate();
+            cbCurveBrush.SelectedIndexChanged += (s, e) => pictureBox1.Invalidate();
+
+            BindControlsEvents();
+            GenerateTrajectory();
         }
 
         #endregion

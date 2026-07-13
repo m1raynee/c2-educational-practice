@@ -1,6 +1,6 @@
-namespace c2_SP_Tasks.Task2
+﻿namespace c2_SP_Tasks.Task3
 {
-    partial class Form1
+    partial class TreeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,46 +29,33 @@ namespace c2_SP_Tasks.Task2
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
-            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.image_25;
-            pictureBox1.InitialImage = Properties.Resources.image_25;
-            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(309, 258);
+            pictureBox1.Size = new Size(684, 661);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(327, 12);
-            label1.Name = "label1";
-            label1.Size = new Size(175, 45);
-            label1.TabIndex = 1;
-            label1.Text = "Траектория отображена слева\r\nФигура: Шестиугольник\r\nВид: Контур без заливки\r\n";
-            // 
-            // Form1
+            // TreeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(535, 283);
-            Controls.Add(label1);
+            ClientSize = new Size(684, 661);
             Controls.Add(pictureBox1);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "TreeForm";
+            Text = "Дерево рекурсии";
+            ResizeEnd += TreeForm_ResizeEnd;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private PictureBox pictureBox1;
-        private Label label1;
     }
 }

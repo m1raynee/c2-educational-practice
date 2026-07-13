@@ -19,22 +19,6 @@ namespace c2_SP_Tasks.Task2
         public BrushDialog()
         {
             InitializeComponent();
-
-            // Привязываем кнопку "Сохранить" к закрытию с результатом OK
-            bSave.DialogResult = DialogResult.OK;
-
-            // Начальные настройки элементов интерфейса
-            cType.SelectedIndex = 0;
-            tPattern.Enabled = false;
-
-            // подписка на события
-            cType.SelectedIndexChanged += UpdatePreview;
-            tPattern.TextChanged += UpdatePreview;
-            nWidth.ValueChanged += UpdatePreview;
-
-            bColor.Click += bColor_Click;
-            pictureBox1.Paint += PictureBox1_Paint;
-            pictureBox1.SizeChanged += (s, e) => pictureBox1.Invalidate();
         }
 
         private void bColor_Click(object sender, EventArgs e)

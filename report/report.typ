@@ -61,6 +61,11 @@
 
 #pagebreak()
 
+#set text(12pt)
+#show heading: set text(12pt)
+
+#set page(numbering: "1")
+
 = АННОТАЦИЯ
 
 В данной работе рассматривается использование средств визуализации и объектно-ориентированного программирования для проектирования программных систем на языке C\#. 
@@ -95,10 +100,10 @@ The third task focuses on developing a fractal construction program with recursi
 
 #show heading.where(level: 1): set heading(numbering: "Раздел 1.")
 
-#let pair-image(before, after, caption-before: "До", caption-after: "После") = box[
+#let pair-image(before, after, caption-before: "До", caption-after: "После", inset_: 25pt) = box[
   #grid(
     columns: (1fr, 1fr),
-    gutter: 8pt,
+    inset: (left: inset_, right: inset_),
     [
       #figure(
         image(before),
@@ -153,7 +158,7 @@ The third task focuses on developing a fractal construction program with recursi
     == Простая траектория
     #align(center)[
 
-    #image("/assets/image-24.png", width: 80%)
+    #image("/assets/image-24.png", width: 50%)
     ]
 ]
 
@@ -370,19 +375,25 @@ $ y_"screen" = H / 2 - (y_"math" - y_c) z, $
 
 == Код программы
 
-#show raw: set text(8pt)
 
-MainForm
 
-#raw(read("../Task2/MainForm.cs"), lang: "c#")
+#show raw: set text(5pt)
+#columns(2)[
+  MainForm
+
+  #raw(read("../Task2/MainForm.cs").replace(regex("(?s)//.*|/\*.*?\*/"), "")
+    .replace("    ", " ").replace("\n", " "), lang: "c#")
 
 BrushDialog
 
-#raw(read("../Task2/BrushDialog.cs"), lang: "c#")
+#raw(read("../Task2/BrushDialog.cs").replace(regex("(?s)//.*|/\*.*?\*/"), "")
+    .replace("    ", " ").replace("\n", " "), lang: "c#")
+]
+
 
 == Примеры различного использования
-#image("/assets/image-4.png")
-#image("/assets/image-5.png")
+
+#pair-image("/assets/image-4.png", "/assets/image-5.png", caption-after: "",caption-before: "")
 
 = Второе индивидуальное Задание
 
@@ -509,20 +520,25 @@ TreeForm срабатывает событие ResizeEnd для перерисо
 
 == Код программы
 
+#columns(2)[
 FractalForm
 
-#raw(read("../Task3/FractalForm.cs"), lang: "c#")
+#raw(
+  read("../Task3/FractalForm.cs")
+    .replace(regex("(?s)//.*|/\*.*?\*/"), "")
+    .replace("    ", " ").replace("\n", " "),
+  lang: "c#"
+)
 
 TreeForm
 
-#raw(read("../Task3/TreeForm.cs"), lang: "c#")
+#raw(read("../Task3/TreeForm.cs").replace(regex("(?s)//.*|/\*.*?\*/"), "").replace("    ", " ").replace("\n", " "), lang: "c#")
+]
+
 
 == Примеры различного использования
 
-#image("/assets/image-26.png")
-
-#image("/assets/image-27.png")
-
+#pair-image("/assets/image-26.png", "/assets/image-27.png", inset_: 2pt, caption-before: "", caption-after: "")
 
 = Заключение
 
@@ -533,8 +549,6 @@ TreeForm
 Второе задание продемонстрировало применение математических моделей в программировании. Реализованная программа анимации показала, как теория (математические уравнения кривых, синусоидальные функции) может быть эффективно преобразована в практический код с использованием геометрических преобразований и интерактивного управления. Особое внимание было уделено равномерному распределению точек по длине дуги, что обеспечило плавное и реалистичное движение объектов.
 
 Третье задание представило собой наиболее сложную часть практики, требующую понимания рекурсивных структур данных и их визуализации. Разработанная программа построения фракталов демонстрирует мощь рекурсии при создании сложных, самоподобных структур. Реализация двойной системы координат и двух окон представления показала, как одну математическую модель можно представить несколькими различными способами.
-
-Все три приложения реализованы с применением принципов объектно-ориентированного программирования, обеспечивают удобный пользовательский интерфейс, поддерживают интерактивное управление и демонстрируют эффективное использование графических библиотек платформы .NET.
 
 В результате проделанной работы были достигнуты основные цели практики:
 - освоены методы разработки графических приложений на C\#;
